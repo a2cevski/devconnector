@@ -9,7 +9,7 @@ const keys = require("../../config/keys.js");
 const validateRegisterInput = require("../../validation/register.js");
 const validateLoginInput = require("../../validation/login.js");
 
-// Load user model
+// Load User Model
 let User = require("../../models/User");
 
 // @route   GET api/users/test
