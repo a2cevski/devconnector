@@ -31,12 +31,12 @@ class Register extends Component {
     axios
       .post("/api/users/register", newUser)
       .then(res => console.log(res.data))
-      .catch(err => this.setState({ errors: err.response.data }));
+      .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
   render() {
-    const { errors } = this.state;
-    console.log(errors);
+    const errors = this.state.errors;
+
     return (
       <div className="register">
         <div className="container">
@@ -58,6 +58,9 @@ class Register extends Component {
                     value={this.state.name}
                     onChange={this.onChange}
                   />
+                  {errors.name && (
+                    <div className="invalid-feedback">{errors.name}</div>
+                  )}
                 </div>
                 <div className="form-group">
                   <input
@@ -70,6 +73,9 @@ class Register extends Component {
                     onChange={this.onChange}
                     name="email"
                   />
+                  {errors.email && (
+                    <div className="invalid-feedback">{errors.email}</div>
+                  )}
                   <small className="form-text text-muted">
                     This site uses Gravatar so if you want a profile image, use
                     a Gravatar email
@@ -86,6 +92,9 @@ class Register extends Component {
                     onChange={this.onChange}
                     name="password"
                   />
+                  {errors.password && (
+                    <div className="invalid-feedback">{errors.password}</div>
+                  )}
                 </div>
                 <div className="form-group">
                   <input
@@ -98,6 +107,9 @@ class Register extends Component {
                     onChange={this.onChange}
                     name="password2"
                   />
+                  {errors.password2 && (
+                    <div className="invalid-feedback">{errors.password2}</div>
+                  )}
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>

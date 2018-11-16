@@ -26,6 +26,7 @@ class Login extends Component {
   }
 
   render() {
+    const errors = {};
     return (
       <div className="login">
         <div className="container">
@@ -45,6 +46,9 @@ class Login extends Component {
                     onChange={this.onChange}
                     name="email"
                   />
+                  {errors.email && (
+                    <div className="invalid-feedback">{errors.email}</div>
+                  )}
                 </div>
                 <div className="form-group">
                   <input
@@ -55,6 +59,9 @@ class Login extends Component {
                     onChange={this.onChange}
                     name="password"
                   />
+                  {errors.password && (
+                    <div className="invalid-feedback">{errors.password}</div>
+                  )}
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
