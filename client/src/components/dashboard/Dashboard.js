@@ -9,6 +9,7 @@ class Dashboard extends Component {
   componentDidMount() {
     this.props.getCurrentProfile();
   }
+
   render() {
     const { user } = this.props.auth;
     const { profile, loading } = this.props.profile;
@@ -19,15 +20,15 @@ class Dashboard extends Component {
       dashboardContent = <Spinner />;
     } else {
       // Check if logged in user has profile data
-      if (Object.keys(profile) > 0) {
-        dashboardContent = <h4>TODO: Display Profile</h4>;
+      if (Object.keys(profile).length > 0) {
+        dashboardContent = <h4>TODO: DISPLAY PROFILE</h4>;
       } else {
         // User is logged in but has no profile
         dashboardContent = (
           <div>
             <p className="lead text-muted">Welcome {user.name}</p>
-            <p>You have not yet setup your profile, please add some info</p>
-            <Link to="/create-profile" className="btn btn-lrg btn-info">
+            <p>You have not yet setup a profile, please add some info</p>
+            <Link to="/create-profile" className="btn btn-lg btn-info">
               Create Profile
             </Link>
           </div>
