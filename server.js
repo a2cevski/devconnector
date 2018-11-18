@@ -33,11 +33,6 @@ app.use(passport.initialize());
 // Passport Config
 require("./config/passport")(passport);
 
-// General GET
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
 // Use routes
 app.use("/api/users", users);
 app.use("/api/profile", profile);
